@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="PL">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Tworzenie prostej strony internetowej.</title>
+
+
+
+
+
+
+</style>
+    
+<link rel="stylesheet" type="text/css" href="./Tworzenie%20prostej%20strony%20internetowej/prism.css">
+<link rel="stylesheet" type="text/css" href="./Tworzenie%20prostej%20strony%20internetowej/style.css">
+
+
+
+
+
+    
+
+<div id="menubar">
+	<div id="hamburger">
+		<div></div><div></div><div></div>
+	</div>
+
+	<a href="https://simplestepscode.com/">
+		<svg height="40" width="40" style="vertical-align: middle; padding: 0px 6px 0px 0px;" viewBox="0 0 10 10" x="http://www.w3.org/2000/svg">
+
+
+		</svg>
+
+	</a>
+	
+	<div id="topnav" class="closed">
+		<a href="https://simplestepscode.com/category/tutorials">Gra w learning apps</a>
+
+	</div>
+</div>
+<section id="content" role="main">
+<div class="masthead">
+	<h1>Tworzenie prostej strony internetowej.</h1>
+</div>
+<div class="intro contentwidth">
+
+
+</div>
+
+<div class="stepscontainer">
+
+	<div class="contentwidth stepbox">
+
+		<h2 id="step1">Punkt 1: Tworzenie pliku html.</h2>
+
+		<p>Aby utworzyć stronę WWW w edytorze plików tekstowych, należy w oknie nowego dokumentu wpisać tekst wraz z odpowiednimi znacznikami.</p>
+		<p>Następnie, za pomocą opcji Zapisz jako, należy zapisać plik w formacie HTML, czyli z roszerzeniem html.</p>
+
+		<h3>Wygląd pliku:</h3>
+        <img src="./Tworzenie%20prostej%20strony%20internetowej/step1.png" alt="zdjęcie">
+
+
+	</div>
+
+
+
+	<div class="contentwidth stepbox">
+		<h2 id="step2">Punkt 2: Czas coś napisać.</h2>
+		<p>Plik z roszerzeniem html otwieramy za pomocą Notepad++.</p>
+        <p> Aby zacząć kodowanie musimy poinformować przeglądarkę o standardzie, w jakim wykonano dokument - dla standardu HTML5 sosuje się:</p>
+		<img src="./Tworzenie%20prostej%20strony%20internetowej/step2.png" alt="zdjęcie">
+
+
+	</div>
+
+
+
+	<div class="contentwidth stepbox">
+		<h2 id="step3">Step 3: On submit, show the results</h2>
+
+		<p>We'll need to fill out our <code>showResults</code> function to show the results of our quiz.</p>
+
+		<p>Here's how our JavaScript logic will look:</p>
+		<ul>
+			<li>For each question, find the selected answer</li>
+			<li>If the answer is correct, respond accordingly</li>
+			<li>If the answer is wrong, respond accordingly</li>
+			<li>Show the number of correct answers out of the total</li>
+		</ul>
+		
+		<p>And here's the JavaScript to show the results of our quiz:</p>
+
+		<pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">function</span> <span class="token function">showResults</span><span class="token punctuation">(</span>questions<span class="token punctuation">,</span> quizContainer<span class="token punctuation">,</span> resultsContainer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	
+	<span class="token comment" spellcheck="true">// gather answer containers from our quiz</span>
+	<span class="token keyword">var</span> answerContainers <span class="token operator">=</span> quizContainer<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.answers'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment" spellcheck="true">// keep track of user's answers</span>
+	<span class="token keyword">var</span> userAnswer <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+	<span class="token keyword">var</span> numCorrect <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	
+	<span class="token comment" spellcheck="true">// for each question...</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>questions<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+		<span class="token comment" spellcheck="true">// find selected answer</span>
+		userAnswer <span class="token operator">=</span> <span class="token punctuation">(</span>answerContainers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input[name=question'</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">']:checked'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+		
+		<span class="token comment" spellcheck="true">// if answer is correct</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>userAnswer<span class="token operator">===</span>questions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>correctAnswer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token comment" spellcheck="true">// add to the number of correct answers</span>
+			numCorrect<span class="token operator">++</span><span class="token punctuation">;</span>
+			
+			<span class="token comment" spellcheck="true">// color the answers green</span>
+			answerContainers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'lightgreen'</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment" spellcheck="true">// if answer is wrong or blank</span>
+		<span class="token keyword">else</span><span class="token punctuation">{</span>
+			<span class="token comment" spellcheck="true">// color the answers red</span>
+			answerContainers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'red'</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment" spellcheck="true">// show number of correct answers out of total</span>
+	resultsContainer<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> numCorrect <span class="token operator">+</span> <span class="token string">' out of '</span> <span class="token operator">+</span> questions<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+		<p>In the line that says "//find selected answer", we did a little trick.  We used the <code>||</code> operator, which means "or" to basically say "Give us the selected answer OR if there's not one, then just give us an empty object." That way, trying to get the <code>.value</code> will give us <code>undefined</code> instead of causing an error.</p>
+		<p>That way, the quiz won't break if someone skips a question.</p>
+
+		<h3>Show quiz results on submit</h3>
+
+		<p>The next step is to show quiz results when someone clicks the submit button.</p>
+
+		<p>The following JavaScript will make that happen:</p>
+
+		<pre class=" language-javascript"><code class=" language-javascript"><span class="token comment" spellcheck="true">// on submit, show results</span>
+submitButton<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token function">showResults</span><span class="token punctuation">(</span>questions<span class="token punctuation">,</span> quizContainer<span class="token punctuation">,</span> resultsContainer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+		<p>Note that the <code>submitButton</code> variable comes from our original <code>generateQuiz</code> function as one of the parameters.</p>
+
+	</div>
+
+
+
+	<div class="contentwidth stepbox">
+		<h2 id="step4">Step 4: Put it all together</h2>
+		<p>Now that you have the pieces, you can generate your very own JavaScript quiz.</p>
+
+		<p>You have the questions in the <code>myQuestions</code> variable from Step 2. Now you need to let your JavaScript know which HTML elements to use for the quiz, the results, and the submit button.</p>
+
+		<pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> quizContainer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'quiz'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> resultsContainer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'results'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> submitButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+		<p>Now that everything's in place, you can generate your JavaScript quiz!</p>
+
+		<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">generateQuiz</span><span class="token punctuation">(</span>myQuestions<span class="token punctuation">,</span> quizContainer<span class="token punctuation">,</span> resultsContainer<span class="token punctuation">,</span> submitButton<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+		<p>Congrats!</p>
+	</div>
+
+
+
+	<div class="contentwidth stepbox">
+		<h2>Bonus: The fun part</h2>
+		<p>Now that you have the basic idea of how to make a JavaScript quiz, you can try styling the elements however you want.</p>
+
+		<h3>Sample CSS used in demo:</h3>
+		<pre class=" language-css"><code class=" language-css"><span class="token selector">body</span><span class="token punctuation">{</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.question</span><span class="token punctuation">{</span>
+	<span class="token property">font-weight</span><span class="token punctuation">:</span> 600<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.answers</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#submit</span><span class="token punctuation">{</span>
+	<span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token property">background-color</span><span class="token punctuation">:</span> #297<span class="token punctuation">;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+	<span class="token property">border</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+	<span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+	<span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+	<span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#submit:hover</span><span class="token punctuation">{</span>
+	<span class="token property">background-color</span><span class="token punctuation">:</span> #3a8<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+		<p>Feel free to change whatever you want!</p>
+
+	</div>
+
+</div></section>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+yb.id('copyyear').innerHTML = new Date().getFullYear();
+
+// add hidden data to email forms
+function fill_form_data(css_class, input){
+	var class_string = '.' + css_class;
+	var items = document.querySelectorAll(class_string);
+	for(var i=0; i<items.length; i++){
+		items[i].value = input;
+	}
+}
+var fields_to_fill = [
+	['mce_URL', window.location.href]
+	,['mce_PATH', window.location.pathname]
+	,['mce_REFERRER', document.referrer || 'direct' ]
+];
+for(var i=0; i<fields_to_fill.length; i++){
+	var css_class = fields_to_fill[i][0];
+	var form_input = fields_to_fill[i][1];
+	fill_form_data(css_class, form_input);
+}
+
+// open and close main nav
+yb.id('hamburger').onclick = function(){
+	yb.id('topnav').className = yb.id('topnav').className=='open' ? 'closed' : 'open';
+};
+
+
+</script>
+
+
+
+
+
+
+
+    
+    <div class="intro contentwidth">
+	<div class="showcasetitle">
+		Spis treści
+	</div>
+
+
+	<ol>
+		<li><a href="https://simplestepscode.com/javascript-quiz-tutorial/#step1">Tworzenie pliku html.</a></li>
+		<li><a href="https://simplestepscode.com/javascript-quiz-tutorial/#step2">Show the questions</a></li>
+		<li><a href="https://simplestepscode.com/javascript-quiz-tutorial/#step3">On submit, show the results</a></li>
+		<li><a href="https://simplestepscode.com/javascript-quiz-tutorial/#step4">Put it all together</a></li>
+	</ol>
+
+</body><app-content ng-version="11.1.0"></app-content></html>
